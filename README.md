@@ -1,15 +1,19 @@
 # wallet-card
 
-> Generate a signed Apple Wallet business card pass — tappable contact fields, QR code that opens your LinkedIn (or anything), and a Twemoji-color PNG mockup so you can preview before signing.
+> Generate a signed Apple Wallet business card pass - tappable contact fields, QR code that opens your LinkedIn (or anything), and a Twemoji-color PNG mockup so you can preview before signing.
 
 A modernization of [lukaskollmer/passcard](https://github.com/lukaskollmer/passcard) (2018) rebuilt on Node 20+, `sharp`, `passkit-generator`, and `qrcode`. No `signpass` binary, no `request`, no `jimp@0.2`.
+
+<p align="center">
+  <img src="docs/pass-mockup.png" alt="Wallet card mockup (front and back)" width="420">
+</p>
 
 ## What you get
 
 - **Signed `.pkpass`** ready to AirDrop / email to your iPhone. Tap → "Add to Wallet."
 - **Color preview mockup** (`pass-mockup.png`) that renders Twemoji icons in the labels so you can see roughly how it'll look on a device *before* signing.
-- **Tappable back-of-pass** — emails open Mail, phone numbers open the dialer, URLs open in their respective apps (LinkedIn, GitHub, etc.).
-- **All-config, no hardcoded data** — copy `config/card.example.json` → `config/card.json`, fill in your details, sign.
+- **Tappable back-of-pass** - emails open Mail, phone numbers open the dialer, URLs open in their respective apps (LinkedIn, GitHub, etc.).
+- **All-config, no hardcoded data** - copy `config/card.example.json` → `config/card.json`, fill in your details, sign.
 
 ## Prereqs
 
@@ -38,7 +42,7 @@ A modernization of [lukaskollmer/passcard](https://github.com/lukaskollmer/passc
    security import ~/Downloads/pass.cer -k ~/Library/Keychains/login.keychain-db
    ```
 
-5. **Export cert + key as PEM files** for this project. (The simplest path — let `passkit-generator` use them directly without needing a Keychain-level identity.)
+5. **Export cert + key as PEM files** for this project. (The simplest path - let `passkit-generator` use them directly without needing a Keychain-level identity.)
 
    ```sh
    # Export all identities into a temp p12 (use any password)
@@ -61,9 +65,9 @@ A modernization of [lukaskollmer/passcard](https://github.com/lukaskollmer/passc
    ```
 
    You should end up with three files in `certs/`:
-   - `pass-cert.pem` — your Pass Type ID certificate
-   - `pass-key.pem` — its matching private key
-   - `wwdr.pem` — Apple's intermediate
+   - `pass-cert.pem` - your Pass Type ID certificate
+   - `pass-key.pem` - its matching private key
+   - `wwdr.pem` - Apple's intermediate
 
 ## Setup
 
@@ -91,8 +95,8 @@ npm run make
 ```
 
 Outputs:
-- `card.pkpass` — the signed pass, ready to put on a phone
-- `pass-mockup.png` — color preview of front + back
+- `card.pkpass` - the signed pass, ready to put on a phone
+- `pass-mockup.png` - color preview of front + back
 
 Or run steps individually:
 
@@ -114,20 +118,20 @@ Wallet shows an "Add to Wallet" prompt. Tap Add. Done.
 
 Everything is in `config/card.json`. Notable bits:
 
-- `style.foregroundColor` / `backgroundColor` / `labelColor` — `rgb(r,g,b)` strings.
-- `style.logoText` — text next to the small logo image in the top-left. Emojis work (`👋 Let's connect`).
-- `style.qrAltText` — caption under the QR. Leave empty for none.
-- `apple.teamIdentifier` — your 10-character Team ID.
-- `apple.passTypeIdentifier` — your registered `pass.com.*` identifier.
-- `certs.signerCert` / `signerKey` / `wwdr` — paths to the three PEM files.
-- `assets.photo` / `assets.logo` — paths to your images.
+- `style.foregroundColor` / `backgroundColor` / `labelColor` - `rgb(r,g,b)` strings.
+- `style.logoText` - text next to the small logo image in the top-left. Emojis work (`👋 Let's connect`).
+- `style.qrAltText` - caption under the QR. Leave empty for none.
+- `apple.teamIdentifier` - your 10-character Team ID.
+- `apple.passTypeIdentifier` - your registered `pass.com.*` identifier.
+- `certs.signerCert` / `signerKey` / `wwdr` - paths to the three PEM files.
+- `assets.photo` / `assets.logo` - paths to your images.
 
 To change which fields appear on the front (currently Email + LinkedIn/GitHub/Cal.com), edit `scripts/build.mjs` directly. Apple Wallet's generic style only allows **4 fields total** across secondary + auxiliary rows.
 
 ## Notes on Apple Wallet limits
 
 - **Generic style**: max 4 combined secondary + auxiliary fields. Going over causes layout cramping (some fields may not display).
-- **`attributedValue`** only supports `<a href>` — no `<img>`, no styling tags. Brand icons (LinkedIn `in`, GitHub `octocat`) can't be inlined as images.
+- **`attributedValue`** only supports `<a href>` - no `<img>`, no styling tags. Brand icons (LinkedIn `in`, GitHub `octocat`) can't be inlined as images.
 - **Emoji labels** *do* render (Wallet uses Apple Color Emoji as font fallback). The mockup uses Twemoji for parity.
 - **Back-of-pass styling** is system-controlled. You author `backFields` (label + value + optional `attributedValue` URL), iOS renders the chrome (dark background, mini-preview, share button, group container).
 
@@ -136,7 +140,7 @@ To change which fields appear on the front (currently Email + LinkedIn/GitHub/Ca
 ```
 .
 ├── config/
-│   ├── card.example.json   # Template — copy to card.json
+│   ├── card.example.json   # Template - copy to card.json
 │   └── card.json           # Your config (gitignored)
 ├── assets/                 # Your photos/logos (gitignored)
 ├── certs/                  # Your signing certs (gitignored)
@@ -149,11 +153,11 @@ To change which fields appear on the front (currently Email + LinkedIn/GitHub/Ca
 
 ## Credits
 
-- Original [passcard](https://github.com/lukaskollmer/passcard) by [Lukas Kollmer](https://lukaskollmer.me) — MIT
-- [passkit-generator](https://github.com/alexandercerutti/passkit-generator) by Alexander Cerutti — handles the actual `.pkpass` signing
-- [Twemoji](https://github.com/twitter/twemoji) — color emoji SVGs for the mockup
+- Original [passcard](https://github.com/lukaskollmer/passcard) by [Lukas Kollmer](https://lukaskollmer.me) - MIT
+- [passkit-generator](https://github.com/alexandercerutti/passkit-generator) by Alexander Cerutti - handles the actual `.pkpass` signing
+- [Twemoji](https://github.com/twitter/twemoji) - color emoji SVGs for the mockup
 - Apple's [WWDR G4](https://www.apple.com/certificateauthority/) intermediate certificate
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT - see [LICENSE](LICENSE).

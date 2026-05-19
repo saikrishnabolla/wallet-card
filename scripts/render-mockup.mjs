@@ -115,7 +115,7 @@ y += 90
 // primary name (bigger, more breathing room above)
 const primaryY = y + 70
 
-// thumb — bigger to match real Wallet rendering (~28% of cardW)
+// thumb - bigger to match real Wallet rendering (~28% of cardW)
 const thumbSize = 190
 const thumbX = cardX + cardW - thumbSize - 28
 const thumbY = primaryY - thumbSize / 2 - 16
@@ -129,7 +129,7 @@ y += secondary.length > 0 ? 92 : 0
 const auxY = y
 y += auxiliary.length > 0 ? 92 : 0
 
-// QR — big whitespace before it
+// QR - big whitespace before it
 const qrSize = 320
 const qrX = cardX + (cardW - qrSize) / 2
 const qrY = y + 80

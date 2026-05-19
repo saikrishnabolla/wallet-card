@@ -12,12 +12,12 @@ certs/
 *.pem
 *.certSigningRequest
 
-# Generated output
+# Generated output (root only - docs/ assets are tracked)
 *.pkpass
 preview.pass/
-pass-mockup.png
-pass-mockup.svg
-poster-bg.png
+/pass-mockup.png
+/pass-mockup.svg
+/poster-bg.png
 
 # Local caches
 .twemoji-cache/

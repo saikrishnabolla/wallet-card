@@ -1,7 +1,7 @@
 {
   "name": "wallet-card",
   "version": "1.0.0",
-  "description": "Generate a signed Apple Wallet business card pass — networking-friendly QR + tappable fields + Twemoji-color preview mockup.",
+  "description": "Generate a signed Apple Wallet business card pass - networking-friendly QR + tappable fields + Twemoji-color preview mockup.",
   "type": "module",
   "engines": {
     "node": ">=20"
