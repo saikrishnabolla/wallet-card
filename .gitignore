@@ -1,0 +1,28 @@
+node_modules/
+.DS_Store
+
+# Personal config and assets (copy config/card.example.json → config/card.json)
+config/card.json
+assets/
+
+# Apple signing certificates and private keys
+certs/
+*.p12
+*.cer
+*.pem
+*.certSigningRequest
+
+# Generated output
+*.pkpass
+preview.pass/
+pass-mockup.png
+pass-mockup.svg
+poster-bg.png
+
+# Local caches
+.twemoji-cache/
+.icon-cache/
+
+# Editor
+.vscode/
+.idea/

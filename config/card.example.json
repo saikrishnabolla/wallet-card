@@ -1,0 +1,33 @@
+{
+  "name": "Jane Doe",
+  "email": "jane@example.com",
+  "phone": "+1 (555) 123-4567",
+  "linkedin": "janedoe",
+  "github": "janedoe",
+  "cal": "janedoe",
+  "website": "www.example.com",
+
+  "assets": {
+    "photo": "./assets/photo.jpg",
+    "logo": "./assets/logo.png"
+  },
+
+  "apple": {
+    "teamIdentifier": "ABCDE12345",
+    "passTypeIdentifier": "pass.com.example.card"
+  },
+
+  "certs": {
+    "signerCert": "./certs/pass-cert.pem",
+    "signerKey": "./certs/pass-key.pem",
+    "wwdr": "./certs/wwdr.pem"
+  },
+
+  "style": {
+    "logoText": "👋 Let's connect",
+    "qrAltText": "",
+    "foregroundColor": "rgb(15, 27, 61)",
+    "backgroundColor": "rgb(242, 242, 247)",
+    "labelColor": "rgb(120, 120, 125)"
+  }
+}
